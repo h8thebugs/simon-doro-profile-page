@@ -2,9 +2,10 @@ import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Button } from './ui/button/button';
 import { RaisedButton } from './ui/raised-button/raised-button';
+import { Card } from './ui/card/card';
 
 @Component({
-  imports: [RouterOutlet, Button, RaisedButton],
+  imports: [RouterOutlet, Button, RaisedButton, Card],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',

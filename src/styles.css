@@ -11,6 +11,11 @@
   --body-font-size: 24px;
   --small-text-size: 18px;
   --button-padding: 1rem;
+  --paper-effect-shadow: 0px 1px 3px 1px rgb(0 0 0 / 0.15), 0px 1px 2px 0 rgb(0 0 0 / 0.30);
+  --paper-effect-shadow-raised: 0 4px 8px rgb(0 0 0 / 0.2), 0 2px 4px rgb(0 0 0 / 0.12);
+  --paper-effect-shadow-active: -2px 2px 4px rgb(0 0 0 / 0.2);
+  --border-radius: 6.25rem;
+  --gap: 1.75rem;
 }
 
 @media (max-width: 800px) {
@@ -18,8 +23,9 @@
     --display-font-size: 60px;
     --headline-font-size: 40px;
     --body-font-size: 20px;
-    --small-text-size: 14px;
+    --small-text-size: 15px;
     --button-padding: 0.75rem;
+    --gap: 1.25rem;
   }
 
 }
@@ -33,11 +39,10 @@
 
 body {
     font-family: 'Noto Sans', system-ui, -apple-system, sans-serif;
+    font-size: var(--body-font-size);
 }
-
-
 .raised-button {
-  box-shadow: 0px 1px 3px 1px rgb(0 0 0 / 0.15), 0px 1px 2px 0 rgb(0 0 0 / 0.30);
+  box-shadow: var(--paper-effect-shadow);
 }
 
 .button {
@@ -45,16 +50,28 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 6.25rem;
+  border-radius: var(--border-radius);
   font-size: var(--body-font-size);
   padding: var(--button-padding);
   cursor: pointer;
-  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
 }
 
-.button:hover {
-  transform: translate(2px, -2px) scale(1.001);
-  box-shadow: 0 4px 8px rgb(0 0 0 / 0.2), 0 2px 4px rgb(0 0 0 / 0.12);
+@media (hover: hover) and (pointer: fine) {
+  .button:hover:not(:active) {
+    transform: translate(1px, -1px) scale(1.001);
+    box-shadow: var(--paper-effect-shadow-raised);
+  }
+}
+
+.button:active {
+  transform: scale(0.99) translate(-1px, 1px);
+  box-shadow: var(--paper-effect-shadow-active);
+  filter: brightness(1.2);
+}
+
+.raised-button:active {
+  filter: brightness(0.9);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -72,6 +89,22 @@ body {
   flex-direction: column;
   align-items: flex-end;
   border-radius: 1.75rem;
+  box-shadow: var(--paper-effect-shadow-raised);
+  min-width: 80vw;
+  min-height: 20vmin;
+  padding: var(--gap);
+}
+
+h1 {
+  font-size: var(--display-font-size);
+}
+
+h2 {
+  font-size: var(--headline-font-size);
+}
+
+p {
+  font-size: var(--small-text-size);
 }
 
 .chip {
@@ -87,12 +120,12 @@ body {
 }
 
 .left-chip {
-  border-top-left-radius: 6.25rem;
-  border-bottom-left-radius: 6.25rem;
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
 }
 
 .right-chip {
   gap: 0.5rem;
-  border-top-right-radius: 6.25rem;
-  border-bottom-right-radius: 6.25rem;
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
 }

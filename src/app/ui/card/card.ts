@@ -12,5 +12,5 @@ export class Card {
   theme = input.required<ThemeType>();
   inverted = input<boolean>(false);
   themeService = inject(ThemeService);
-  colors = computed(() => this.themeService.toColor(this.theme(), true));
+  colors = computed(() => this.themeService.toColor(this.theme(), this.inverted()));
 }
