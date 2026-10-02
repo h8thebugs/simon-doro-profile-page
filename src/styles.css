@@ -6,6 +6,7 @@
   --on-secondary: #EEE2E4;
   --tertiary: #675382;
   --on-tertiary: #E9E3ED;
+  --background: white;
   --display-font-size: 64px;
   --headline-font-size: 42px;
   --body-font-size: 24px;
@@ -16,6 +17,7 @@
   --paper-effect-shadow-active: -2px 2px 4px rgb(0 0 0 / 0.2);
   --border-radius: 6.25rem;
   --gap: 1.75rem;
+  --transition: all 0.25s ease-in-out;
 }
 
 @media (max-width: 800px) {
@@ -40,7 +42,9 @@
 body {
     font-family: 'Noto Sans', system-ui, -apple-system, sans-serif;
     font-size: var(--body-font-size);
+    background: var(--background);
 }
+
 .raised-button {
   box-shadow: var(--paper-effect-shadow);
 }
@@ -54,7 +58,7 @@ body {
   font-size: var(--body-font-size);
   padding: var(--button-padding);
   cursor: pointer;
-  transition: all 0.25s ease-in-out;
+  transition: var(--transition);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -117,6 +121,14 @@ p {
   border-width: 1px;
   border-style: solid;
   border-color: #79747e;
+  cursor: pointer;
+  transition: var(--transition);
+  max-height: fit-content;
+  padding: 3px;
+}
+
+.chip:hover {
+  color: var(--primary);
 }
 
 .left-chip {
