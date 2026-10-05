@@ -10,10 +10,19 @@
 }
 
 .nav .container {
-  width: 40%;
+  width: 45%;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+}
+
+.nav .chip {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav .chip:hover {
+  color: var(--primary);
 }
 
 .logo {
@@ -35,19 +44,19 @@
 
 @media (max-width: 1300px) {
     .nav .container {
-        width: 45%;
+        width: 50%;
     }
 }
 
 @media (max-width: 1200px) {
     .nav .container {
-        width: 50%;
+        width: 55%;
     }
 }
 
 @media (max-width: 1000px) {
     .nav .container {
-        width: 55%;
+        width: 65%;
     }
 }
 
@@ -61,6 +70,6 @@
     }
   .nav .container {
     width: 80%;
+    font-size: var(--small-text-size);
   }
 }
-
