@@ -16,6 +16,11 @@
   justify-content: flex-end;
 }
 
+.highlighted {
+    color: black;
+    background-color: var(--on-primary);
+}
+
 .nav .chip {
   color: inherit;
   text-decoration: none;
@@ -23,6 +28,10 @@
 
 .nav .chip:hover {
   color: var(--primary);
+}
+
+.nav .chip .a {
+    transition: var(--transition);
 }
 
 .logo {
