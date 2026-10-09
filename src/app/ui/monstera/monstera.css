@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  width: 100%;
+  max-width: 18rem;
+}
+
+svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+path {
+  stroke-dasharray: 1;
+  animation: draw 2.5s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  path {
+    animation: none;
+    stroke-dasharray: none;
+  }
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
