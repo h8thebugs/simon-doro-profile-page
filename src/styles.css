@@ -32,6 +32,18 @@
 
 }
 
+@media (max-width: 450px) {
+  :root {
+    --display-font-size: 48px;
+    --headline-font-size: 32px;
+    --body-font-size: 16px;
+    --small-text-size: 12px;
+    --button-padding: 0.75rem;
+    --gap: 1.25rem;
+  }
+
+}
+
 @font-face {
     font-family: 'Noto Sans';
     src: url("../public/font/NotoSans-VariableFont_wdth\,wght.ttf") format("truetype");
