@@ -14,6 +14,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  font-size: var(--small-text-size);
 }
 
 .highlighted {
@@ -22,12 +23,22 @@
 }
 
 .nav .chip {
+  flex: 1 1 0;
+  min-width: 0;
+  max-height: none;
   color: inherit;
+  text-align: center;
   text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.nav .chip:not(.highlighted) {
+  background-color: var(--background);
 }
 
 .nav .chip:hover {
-  color: var(--primary);
+  color: inherit;
+  filter: brightness(0.95);
 }
 
 .nav .chip .a {
@@ -59,13 +70,13 @@
 
 @media (max-width: 1200px) {
     .nav .container {
-        width: 55%;
+        width: 60%;
     }
 }
 
 @media (max-width: 1000px) {
     .nav .container {
-        width: 65%;
+        width: 75%;
     }
 }
 
@@ -81,4 +92,23 @@
     width: 80%;
     font-size: var(--small-text-size);
   }
+}
+
+@media (max-width: 600px) {
+  .nav .container {
+    width: 85%;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 460px) {
+    .logo > div:nth-child(2) {
+        display: block;
+    }
+    .nav {
+        flex-direction: column-reverse;
+    }
+    .nav .container {
+        width: 100%;
+    }
 }

@@ -6,8 +6,17 @@
         <div>Logo</div>
     </a>
     <div class="container">
-        <a routerLink="/cv" class="chip left-chip" routerLinkActive="highlighted">Bemutatkozás</a>
-        <a routerLink="/booking" class="chip" routerLinkActive="highlighted">Kapcsolat</a>
-        <a routerLink="/therapy-process" class="chip right-chip" routerLinkActive="highlighted">Terápiás keretek</a>
+        <a routerLink="/cv" class="chip left-chip" routerLinkActive="highlighted" #cvActive="routerLinkActive">
+            <app-user [selected]="cvActive.isActive"></app-user>
+            Bemutatkozás
+        </a>
+        <a routerLink="/booking" class="chip" routerLinkActive="highlighted" #bookingActive="routerLinkActive">
+            <app-calendar [selected]="bookingActive.isActive"></app-calendar>
+            Időpont
+        </a>
+        <a routerLink="/therapy-process" class="chip right-chip" routerLinkActive="highlighted" #therapyActive="routerLinkActive">
+            <app-compass [selected]="therapyActive.isActive"></app-compass>
+            Terápiás keretek
+        </a>
     </div>
 </div>

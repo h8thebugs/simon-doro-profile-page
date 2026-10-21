@@ -20,9 +20,22 @@
   --transition: all 0.25s ease-in-out;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
   :root {
     --display-font-size: 60px;
+  }
+}
+
+
+@media (max-width: 1000px) {
+  :root {
+    --display-font-size: 48px;
+  }
+}
+
+@media (max-width: 800px) {
+  :root {
+    --display-font-size: 44px;
     --headline-font-size: 40px;
     --body-font-size: 20px;
     --small-text-size: 15px;
@@ -32,12 +45,12 @@
 
 }
 
-@media (max-width: 450px) {
+@media (max-width: 600px) {
   :root {
-    --display-font-size: 48px;
-    --headline-font-size: 32px;
+    --display-font-size: 32px;
+    --headline-font-size: 28px;
     --body-font-size: 16px;
-    --small-text-size: 12px;
+    --small-text-size: 13px;
     --button-padding: 0.75rem;
     --gap: 1.25rem;
   }
@@ -46,7 +59,7 @@
 
 @font-face {
     font-family: 'Noto Sans';
-    src: url("../public/font/NotoSans-VariableFont_wdth\,wght.ttf") format("truetype");
+    src: url("/font/NotoSans-Regular.ttf") format("truetype");
     font-weight: 500;
     font-display: swap;
 }
@@ -106,7 +119,6 @@ body {
   align-items: flex-end;
   border-radius: 1.75rem;
   box-shadow: var(--paper-effect-shadow-raised);
-  min-width: 80vw;
   min-height: 20vmin;
   padding: var(--gap);
 }
@@ -121,6 +133,25 @@ h2 {
 
 p {
   font-size: var(--small-text-size);
+}
+
+.responsive-icon {
+  width: 28px;
+  height: 28px;
+}
+
+@media (max-width: 600px) {
+  .responsive-icon {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 500px) {
+  .responsive-icon {
+    width: 23px;
+    height: 23px;
+  }
 }
 
 .chip {
@@ -149,7 +180,64 @@ p {
 }
 
 .right-chip {
-  gap: 0.5rem;
   border-top-right-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
+}
+
+.dynamic-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  width: 75%;
+}
+
+.dynamic-container > app-card {
+  width: 60%;
+  max-width: 50rem;
+}
+
+@media (max-width: 1200px) {
+  .dynamic-container {
+    width: 85%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .dynamic-container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 800px) {
+  .dynamic-container {
+    flex-direction: column;
+  }
+
+  .dynamic-container > app-monstera {
+    width: 50%;
+  }
+
+  .dynamic-container > app-card {
+    flex: 1;
+    width: 75%;
+  }
+}
+
+@media (max-width: 600px) {
+  .dynamic-container > app-monstera {
+    width: 70%;
+  }
+  .dynamic-container > app-card {
+    width: 85%;
+  }
+}
+
+@media (max-width: 450px) {
+  .dynamic-container {
+    width: 100%;
+  }
+  .dynamic-container > app-card {
+    width: 95%;
+  }
 }

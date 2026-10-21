@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { Button } from '../../ui/button/button';
+import { NgOptimizedImage } from '@angular/common';
 import { Card } from '../../ui/card/card';
 import { Monstera } from '../../ui/monstera/monstera';
-import { RaisedButton } from '../../ui/raised-button/raised-button';
 
 @Component({
-  imports: [Button, RaisedButton, Card, Monstera],
+  imports: [Card, Monstera, NgOptimizedImage],
   selector: 'app-hero',
   styleUrl: './hero.css',
   templateUrl: './hero.html',

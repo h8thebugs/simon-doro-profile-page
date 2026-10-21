@@ -1,45 +1,17 @@
-<div style="padding: 2rem; display: flex; flex-direction: column; align-items: center; gap: 2rem">
-  <app-card theme="primary">
-    <div style="min-height: 30vmin; width: 100%;">
-      <h2>Card Title</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <app-monstera color="var(--on-primary)"></app-monstera>
+<div style="padding: 2rem; display: flex; flex-direction: column; align-items: center; gap: 20vmin">
+  <div class="dynamic-container">
+    <app-monstera color="var(--primary)"></app-monstera>
+    <app-card theme="primary" [inverted]="true">
+    <div style="min-height: 30vmin;">
+      <h1><em>„A változás ott kezdődik, ahol teret adunk önmagunk megértésének”</em></h1>
     </div>
-      <app-raised-button label="Click Me" theme="primary"></app-raised-button>
   </app-card>
-  <app-card theme="secondary">
-    <div style="min-height: 30vmin; width: 100%;">
-      <h2>Card Title</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </div>
-      <app-raised-button label="Click Me" theme="secondary"></app-raised-button>
-  </app-card>
-  <app-card theme="tertiary">
-    <div style="min-height: 30vmin; width: 100%;">
-      <h2>Card Title</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </div>
-      <app-raised-button label="Click Me" theme="tertiary"></app-raised-button>
-  </app-card>
-  <app-card theme="primary" [inverted]="true">
-    <div style="min-height: 30vmin; width: 100%;">
-      <h2>Card Title</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </div>
-      <app-button label="Click Me" theme="primary"></app-button>
-  </app-card>
-  <app-card theme="secondary" [inverted]="true">
-    <div style="min-height: 30vmin; width: 100%;">
-      <h2>Card Title</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </div>
-      <app-button label="Click Me" theme="secondary"></app-button>
-  </app-card>
-  <app-card theme="tertiary" [inverted]="true">
-    <div style="min-height: 30vmin; width: 100%;">
-      <h2>Card Title</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </div>
-      <app-button label="Click Me" theme="tertiary"></app-button>
-  </app-card>
+  </div>
+  <div class="dynamic-container">
+    <app-card theme="secondary" [inverted]="true">
+      <h2>Bemutatkozás</h2>
+      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+    </app-card>
+    <img class="profile-image" ngSrc="profile.png" width="278" height="403" alt="Profil kép">
+  </div>
 </div>
