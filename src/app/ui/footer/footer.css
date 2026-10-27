@@ -1,0 +1,34 @@
+:host {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+footer {
+  box-sizing: border-box;
+  width: 100%;
+  padding: calc(var(--gap) / 2);
+}
+
+
+.dynamic-grid {
+  display: flex;
+  justify-content: center;
+}
+
+.dynamic-grid > a {
+  box-sizing: border-box;
+  max-width: 100%;
+  color: var(--default-text-color);
+}
+
+.dynamic-grid > a > span {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.dynamic-grid > a:focus-visible {
+  outline: 0.125rem solid var(--tertiary);
+  outline-offset: 0.25rem;
+}

@@ -72,12 +72,12 @@
 
 .snap-scroll-center {
   scroll-snap-align: center;
-  scroll-snap-stop: always;
+  scroll-snap-stop: normal;
 }
 
-.dynamic-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--gap);
-  justify-content: space-between;
+@media (max-width: 800px) {
+  .snap-scroll-center {
+    scroll-snap-align: unset;
+    scroll-snap-stop: unset;
+  }
 }
