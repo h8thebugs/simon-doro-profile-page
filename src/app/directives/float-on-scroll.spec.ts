@@ -42,8 +42,8 @@ class MockIntersectionObserver implements IntersectionObserver {
 @Component({
   imports: [FloatOnScroll],
   template: `
-    <div appFloatOnScroll="left"></div>
-    <div appFloatOnScroll="right"></div>
+    <div appFloatOnScroll></div>
+    <div appFloatOnScroll></div>
   `,
 })
 class TestHost {}
@@ -81,25 +81,23 @@ describe('FloatOnScroll', () => {
     observers[0].emit(elements[0], false);
     fixture.detectChanges();
 
-    expect(elements[0].classList.contains('float-in-from-left')).toBe(false);
-    expect(elements[1].classList.contains('float-in-from-right')).toBe(false);
+    expect(elements[0].classList.contains('float-in')).toBe(false);
+    expect(elements[1].classList.contains('float-in')).toBe(false);
     expect(observers[0].disconnect).not.toHaveBeenCalled();
   });
 
-  it('animates each element independently in its configured direction', () => {
+  it('reveals each element independently with the shared upward animation', () => {
     observers[0].emit(elements[0], true);
     fixture.detectChanges();
 
-    expect(elements[0].classList.contains('float-in-from-left')).toBe(true);
-    expect(elements[0].classList.contains('float-in-from-right')).toBe(false);
-    expect(elements[1].classList.contains('float-in-from-right')).toBe(false);
+    expect(elements[0].classList.contains('float-in')).toBe(true);
+    expect(elements[1].classList.contains('float-in')).toBe(false);
     expect(observers[0].disconnect).toHaveBeenCalledOnce();
 
     observers[1].emit(elements[1], true);
     fixture.detectChanges();
 
-    expect(elements[1].classList.contains('float-in-from-right')).toBe(true);
-    expect(elements[1].classList.contains('float-in-from-left')).toBe(false);
+    expect(elements[1].classList.contains('float-in')).toBe(true);
     expect(observers[1].disconnect).toHaveBeenCalledOnce();
   });
 
@@ -111,7 +109,7 @@ describe('FloatOnScroll', () => {
     observers[0].emit(elements[0], true);
     fixture.detectChanges();
 
-    expect(elements[0].classList.contains('float-in-from-left')).toBe(true);
+    expect(elements[0].classList.contains('float-in')).toBe(true);
     expect(observers[0].disconnect).toHaveBeenCalledOnce();
   });
 

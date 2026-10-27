@@ -1,14 +1,27 @@
 import { TestBed } from '@angular/core/testing';
 import { provideRouter, Router } from '@angular/router';
+import { vi } from 'vitest';
 import { App } from './app';
 import { routes } from './app.routes';
 
 describe('App', () => {
   beforeEach(async () => {
+    vi.stubGlobal(
+      'IntersectionObserver',
+      class {
+        observe = vi.fn();
+        disconnect = vi.fn();
+      },
+    );
+
     await TestBed.configureTestingModule({
       imports: [App],
       providers: [provideRouter(routes)],
     }).compileComponents();
+  });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
   });
 
   it('should create the app', () => {
@@ -29,7 +42,7 @@ describe('App', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector(selector)).not.toBeNull();
     expect(compiled.querySelector('app-navbar')).not.toBeNull();
-    expect(compiled.querySelectorAll('app-card')).toHaveLength(url === '/' ? 6 : 0);
+    expect(compiled.querySelectorAll('app-card')).toHaveLength(url === '/' ? 2 : 0);
   });
 
   it('should switch pages using the navbar', async () => {
@@ -45,7 +58,7 @@ describe('App', () => {
       ['/booking', 'app-booking'],
       ['/', 'app-hero'],
     ]) {
-      const link = compiled.querySelector<HTMLAnchorElement>(`.chip[href="${url}"]`);
+      const link = compiled.querySelector<HTMLAnchorElement>(`app-navbar a[href="${url}"]`);
       if (!link) {
         throw new Error(`Missing navbar link for ${url}`);
       }

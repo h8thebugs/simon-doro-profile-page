@@ -1,10 +1,23 @@
 .hero-container {
-  padding: calc(var(--gap) * 4);
   padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30vh;
+  overflow-x: clip;
+}
+
+.dynamic-container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  width: 75%;
+}
+
+.dynamic-container > app-card {
+  width: 60%;
+  max-width: 50rem;
 }
 
 .card-link {
@@ -58,26 +71,51 @@
   margin: var(--gap);
 }
 
+@media (max-width: 1200px) {
+  .dynamic-container {
+    width: 85%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .dynamic-container {
+    width: 90%;
+  }
+}
+
 @media (max-width: 800px) {
+  .dynamic-container {
+    flex-direction: column;
+  }
+
+  .dynamic-container > app-monstera,
   .profile-image {
     width: 50%;
+  }
+
+  .dynamic-container > app-card {
+    flex: 1;
+    width: 75%;
   }
 }
 
 @media (max-width: 600px) {
+  .dynamic-container > app-monstera,
   .profile-image {
     width: 70%;
   }
+
+  .dynamic-container > app-card {
+    width: 85%;
+  }
 }
 
-.snap-scroll-center {
-  scroll-snap-align: center;
-  scroll-snap-stop: normal;
-}
+@media (max-width: 450px) {
+  .dynamic-container {
+    width: 100%;
+  }
 
-@media (max-width: 800px) {
-  .snap-scroll-center {
-    scroll-snap-align: unset;
-    scroll-snap-stop: unset;
+  .dynamic-container > app-card {
+    width: 95%;
   }
 }

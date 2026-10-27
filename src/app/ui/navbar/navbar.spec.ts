@@ -36,6 +36,38 @@ describe('Navbar', () => {
     expect(component).toBeTruthy();
   });
 
+  it('hides the mobile logo on any scroll and restores it at the top', async () => {
+    const scrollY = Object.getOwnPropertyDescriptor(window, 'scrollY');
+    const nav = fixture.nativeElement.querySelector('.nav') as HTMLElement;
+
+    try {
+      for (const [position, hidden] of [
+        [0, false],
+        [1, true],
+        [300, true],
+        [0, false],
+        [-1, false],
+      ] as const) {
+        Object.defineProperty(window, 'scrollY', { configurable: true, value: position });
+        window.dispatchEvent(new Event('scroll'));
+        await fixture.whenStable();
+        expect(nav.classList.contains('logo-hidden')).toBe(hidden);
+      }
+
+      Object.defineProperty(window, 'scrollY', { configurable: true, value: 1 });
+      const restored = TestBed.createComponent(Navbar);
+      await restored.whenStable();
+      expect(restored.nativeElement.querySelector('.nav').classList.contains('logo-hidden')).toBe(
+        true,
+      );
+      restored.destroy();
+    } finally {
+      if (scrollY) {
+        Object.defineProperty(window, 'scrollY', scrollY);
+      }
+    }
+  });
+
   it('should keep icon selection and chip highlighting in sync during navigation', async () => {
     const router = TestBed.inject(Router);
     const icons = [

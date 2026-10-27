@@ -7,9 +7,8 @@
 footer {
   box-sizing: border-box;
   width: 100%;
-  padding: calc(var(--gap) / 2);
+  padding: calc(var(--gap) / 2) calc(var(--gap) / 2) var(--gap);
 }
-
 
 .dynamic-grid {
   display: flex;

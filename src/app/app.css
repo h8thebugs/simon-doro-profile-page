@@ -7,3 +7,10 @@
 main {
   flex: 1;
 }
+
+@media (max-width: 460px) {
+  :host {
+    /* Keep scroll anchoring from counteracting the shrinking navbar. */
+    overflow-anchor: none;
+  }
+}

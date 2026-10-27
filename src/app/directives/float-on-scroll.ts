@@ -1,22 +1,12 @@
-import {
-  afterNextRender,
-  DestroyRef,
-  Directive,
-  ElementRef,
-  inject,
-  input,
-  signal,
-} from '@angular/core';
+import { afterNextRender, DestroyRef, Directive, ElementRef, inject, signal } from '@angular/core';
 
 @Directive({
   selector: '[appFloatOnScroll]',
   host: {
-    '[class.float-in-from-left]': 'visible() && direction() === "left"',
-    '[class.float-in-from-right]': 'visible() && direction() === "right"',
+    '[class.float-in]': 'visible()',
   },
 })
 export class FloatOnScroll {
-  readonly direction = input.required<'left' | 'right'>({ alias: 'appFloatOnScroll' });
   protected readonly visible = signal(false);
 
   private readonly element = inject<ElementRef<HTMLElement>>(ElementRef);
