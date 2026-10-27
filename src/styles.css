@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+html {
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+  }
+}
+
 :root {
   --primary: #4E7C7C;
   --on-primary: #D9E8E8;
@@ -6,7 +18,7 @@
   --on-secondary: #EEE2E4;
   --tertiary: #675382;
   --on-tertiary: #E9E3ED;
-  --background: white;
+  --background: #FFFAFA;
   --display-font-size: 64px;
   --headline-font-size: 42px;
   --body-font-size: 24px;
@@ -50,7 +62,7 @@
     --display-font-size: 32px;
     --headline-font-size: 28px;
     --body-font-size: 16px;
-    --small-text-size: 13px;
+    --small-text-size: 14px;
     --button-padding: 0.75rem;
     --gap: 1.25rem;
   }
@@ -123,6 +135,10 @@ body {
   padding: var(--gap);
 }
 
+.card p {
+  font-size: var(--body-font-size);
+}
+
 h1 {
   font-size: var(--display-font-size);
 }
@@ -154,42 +170,72 @@ p {
   }
 }
 
-.chip {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-self: stretch;
-  flex-grow: 1;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #79747e;
-  cursor: pointer;
-  transition: var(--transition);
-  max-height: fit-content;
-  padding: 3px;
-}
-
-.chip:hover {
-  color: var(--primary);
-}
-
-.left-chip {
-  border-top-left-radius: var(--border-radius);
-  border-bottom-left-radius: var(--border-radius);
-}
-
-.right-chip {
-  border-top-right-radius: var(--border-radius);
-  border-bottom-right-radius: var(--border-radius);
-}
-
 .dynamic-container {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
   width: 75%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .float-in-from-left {
+    animation: float-in-main 0.5s ease-out;
+    animation-delay: 100ms;
+    animation-fill-mode: backwards;
+  }
+
+  .float-in-from-right {
+    animation: float-in-secondary 0.5s ease-out;
+    animation-delay: 100ms;
+    animation-fill-mode: backwards;
+  }
+}
+
+@keyframes float-in-main {
+  from {
+    transform: translateX(-2rem);
+    filter: blur(0.25rem);
+  }
+  to {
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes float-in-secondary {
+  from {
+    transform: translateX(2rem);
+    filter: blur(0.25rem);
+  }
+  to {
+    transform: translateX(0);
+    filter: blur(0);
+  }
+}
+
+@media (max-width: 800px) {
+  @keyframes float-in-main {
+    from {
+      transform: translateY(2rem);
+      filter: blur(0.25rem);
+    }
+    to {
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes float-in-secondary {
+    from {
+      transform: translateY(2rem);
+      filter: blur(0.25rem);
+    }
+    to {
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
 }
 
 .dynamic-container > app-card {
