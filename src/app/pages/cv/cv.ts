@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { Button } from '../../ui/button/button';
-import { RaisedButton } from '../../ui/raised-button/raised-button';
+import { FloatOnScroll } from '../../directives/float-on-scroll';
+import { Fingerprint } from '../../ui/fingerprint/fingerprint';
+import { Tree } from '../../ui/tree/tree';
+import { GraduationCap } from '../../ui/graduation-cap/graduation-cap';
 
 @Component({
-  imports: [Button, RaisedButton],
+  imports: [Fingerprint, Tree, GraduationCap, FloatOnScroll],
   selector: 'app-cv',
   styleUrl: './cv.css',
   templateUrl: './cv.html',

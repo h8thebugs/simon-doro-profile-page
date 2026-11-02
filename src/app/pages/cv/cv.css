@@ -1,0 +1,9 @@
+p {
+    font-size: var(--body-font-size);
+}
+
+@media (max-width: 1000px) {
+    p {
+        font-size: var(--small-text-size);
+    }
+}

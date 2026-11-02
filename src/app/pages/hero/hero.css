@@ -7,6 +7,12 @@
   overflow-x: clip;
 }
 
+@media (min-width: 800px) {
+  .hero-container {
+    margin-top: 10dvh;
+  }
+}
+
 .dynamic-container {
   display: flex;
   flex-direction: row-reverse;
@@ -86,6 +92,7 @@
 @media (max-width: 800px) {
   .dynamic-container {
     flex-direction: column;
+    min-height: 90dvh;
   }
 
   .dynamic-container > app-monstera,

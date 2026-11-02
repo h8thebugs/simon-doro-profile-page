@@ -1,0 +1,35 @@
+:host {
+  display: block;
+}
+
+svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+path {
+  stroke-dasharray: 1;
+  animation: draw 1.8s ease-out both;
+}
+
+:host-context([appFloatOnScroll]:not(.float-in)) path {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  path {
+    animation: none;
+    stroke-dasharray: none;
+  }
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
