@@ -1,1 +1,29 @@
-<p>booking works!</p>
+<div class="page-container">
+  <form>
+    <label class="text-field" for="name">
+      <input type="text" id="name" name="name" autocomplete="name" placeholder=" " required />
+      <span class="text-field-label">Teljes Név</span>
+    </label>
+    <label class="text-field" for="email">
+      <input type="email" id="email" name="email" autocomplete="email" placeholder=" " required />
+      <span class="text-field-label">Email</span>
+    </label>
+    <label class="text-field" for="phone">
+      <input type="tel" name="phone" id="phone" autocomplete="tel" placeholder=" " required />
+      <span class="text-field-label">Telefonszám</span>
+    </label>
+    <label class="text-field" for="visited">
+      <select name="visited" id="visited" required>
+        <option value="" disabled selected>Jelölje ki a megfelelő választ.</option>
+        <option value="yes">Igen, már voltam.</option>
+        <option value="no">Nem, ez az első alkalom.</option>
+      </select>
+      <span class="text-field-label">Volt-e már nálunk?</span>
+    </label>
+    <label class="text-field" for="message">
+      <textarea name="message" id="message" rows="5" placeholder=" " required></textarea>
+      <span class="text-field-label">Üzenet</span>
+    </label>
+    <app-button type="submit" label="Küldés" theme="primary"></app-button>
+  </form>
+</div>

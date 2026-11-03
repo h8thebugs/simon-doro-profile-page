@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { Button } from '../../ui/button/button';
 
 @Component({
-  imports: [],
+  imports: [Button],
   selector: 'app-booking',
   styleUrl: './booking.css',
   templateUrl: './booking.html',

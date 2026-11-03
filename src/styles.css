@@ -11,6 +11,7 @@ html {
   --on-tertiary: #e9e3ed;
   --background: #fffafa;
   --default-text-color: black;
+  --border-color: #79747e;
   --display-font-size: 64px;
   --headline-font-size: 42px;
   --body-font-size: 24px;
@@ -98,6 +99,109 @@ em {
     filter var(--transition),
     color var(--transition),
     background-color var(--transition);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  width: min(100%, 40rem);
+}
+
+.text-field {
+  --field-label: #49454f;
+  position: relative;
+  display: block;
+  min-width: 0;
+}
+
+.text-field > :is(input, select, textarea) {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 3.5rem;
+  margin: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 0.25rem;
+  padding: 1rem;
+  background: transparent;
+  color: var(--default-text-color);
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  caret-color: var(--primary);
+}
+
+.text-field > textarea {
+  height: auto;
+  min-height: 10rem;
+  resize: vertical;
+}
+
+.text-field-label {
+  position: absolute;
+  top: 1.75rem;
+  left: 0.75rem;
+  max-width: calc(100% - 2rem);
+  padding-inline: 0.25rem;
+  overflow: hidden;
+  background: var(--background);
+  color: var(--field-label);
+  font-size: var(--small-text-size);
+  line-height: 1.5;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition:
+    top var(--transition),
+    font-size var(--transition),
+    color var(--transition);
+}
+
+.text-field > :is(input, textarea):is(:focus, :not(:placeholder-shown)) + .text-field-label,
+.text-field > select + .text-field-label {
+  top: 0;
+  font-size: calc(var(--small-text-size) - 2px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .text-field > :is(input, select, textarea):hover:not(:disabled, :focus) {
+    border-color: var(--default-text-color);
+  }
+}
+
+.text-field > :is(input, select, textarea):focus {
+  border-color: var(--primary);
+  outline: calc(var(--border-width) * 2) solid var(--primary);
+  outline-offset: -2px;
+}
+
+.text-field > :is(input, select, textarea):focus + .text-field-label {
+  color: var(--primary);
+}
+
+.text-field > :is(input, select, textarea):user-invalid {
+  border-color: var(--secondary);
+  caret-color: var(--secondary);
+}
+
+.text-field > :is(input, select, textarea):user-invalid:focus {
+  outline-color: var(--secondary);
+}
+
+.text-field > :is(input, select, textarea):user-invalid + .text-field-label {
+  color: var(--secondary);
+}
+
+.text-field > :is(input, select, textarea):disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.text-field > :is(input, select, textarea):disabled + .text-field-label {
+  opacity: 0.7;
 }
 
 .title-container {
@@ -288,7 +392,8 @@ p {
   }
 
   .button,
-  .chip {
+  .chip,
+  .text-field-label {
     transition: none;
   }
 
